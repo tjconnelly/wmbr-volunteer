@@ -7,10 +7,10 @@ def config_path():
 
 def config_env():
   try:
-    return config.ENVIRONMENT
+    environment = config.ENVIRONMENT
   except AttributeError:
     package,environment = os.path.basename(config_path()).split("-")
-    return environment
+  return environment
 
 def config_database(env=None):
   if env is None:
@@ -29,14 +29,6 @@ def config_sqlalchemy(cxn):
   uri = 'mysql+pymysql://{user}:{passwd}@{host}/{db}'.format(**cxn)
   return uri
 
-def config_lcdn(env):
-  resource_urls = {}
-  parser = SafeConfigParser();
-  parser.read(os.path.join(config_path(),'lcdn.cfg'))
-  for key,value in parser.items(env):
-    resource_urls[key] = value;
-  return resource_urls
-
 class Config:
   NAME = config.APPNAME
   # setup
@@ -49,12 +41,6 @@ class Config:
   SQLALCHEMY_COMMIT_ON_TEARDOWN = True
   SQLALCHEMY_TRACK_MODIFICATIONS = False
   # deliver libraries
-  LCDN_PATH = os.path.join(config_path(),'/lcdn/static')
-  LCDN_ALLOWED = {
-    'css':  'text/css',
-    'js': 'application/javascript'
-  }
-  LCDN_SRC = config_lcdn('remote')
   # form support
   SECRET_KEY = '+]x-ML7!wTv|2nA]`]CKaN!K8'
   # unicode on
@@ -66,16 +52,17 @@ class Config:
 # config modifications
 class LiveConfig(Config):
   JSON_AS_ASCII = False
+  PRINT_ENV = False
 
 class DevConfig(Config):
   DEBUG = True
   TESTING = True
+  PRINT_ENV = True
 
 class LocalConfig(Config):
   DEBUG = True
   TESTING = True
-  #LCDN_SRC = config_lcdn('local')
-  LCDN_SRC = config_lcdn('remote')
+  PRINT_ENV = True
 
 configs = {
   "live":         "env.LiveConfig",

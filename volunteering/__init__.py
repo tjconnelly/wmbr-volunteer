@@ -2,9 +2,9 @@
 # flask setup
 from flask import Flask, g
 from flask.json import JSONEncoder
-#from flask_bootstrap import Bootstrap
-#from flask_moment import Moment
-#from flask_sqlalchemy import SQLAlchemy
+from flask_bootstrap import Bootstrap
+from flask_moment import Moment
+from flask_sqlalchemy import SQLAlchemy
 #from flaskext.mysql import MySQL
 
 # add .fml to templates                                       
@@ -28,9 +28,9 @@ class ExtendedJSONEncoder(JSONEncoder):
 from env import configs,config_env
 
 # helper modules
-#bootstrap = Bootstrap()
-#moment = Moment()
-#db = SQLAlchemy()
+bootstrap = Bootstrap()
+moment = Moment()
+db = SQLAlchemy()
 #mysql = MySQL()
 
 def initialize(environment=None):

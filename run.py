@@ -8,11 +8,14 @@ sys.path.insert(0,directory)
 ###
 # run that baby
 from volunteering import initialize,db
-from volunteering.models import *
+#from volunteering.models import *
 
-app = initialize(os.getenv('FLASK_CONFIG') or 'local')
-#import volunteering.access
+app = initialize(os.getenv('FLASK_CONFIG') or 'development')
 import volunteering.context
+
+if app.config['PRINT_ENV']:
+  print(' * Config: {0}'.format(app.config['ENVIRONMENT']))
+
 
 ### {{{ shell commands
 import click
