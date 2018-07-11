@@ -1,0 +1,2 @@
+APPNAME='defaultapplicationname'
+ENVIRONMENT='development'
