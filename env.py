@@ -56,7 +56,7 @@ class Config:
   }
   LCDN_SRC = config_lcdn('remote')
   # form support
-  SECRET_KEY = ''
+  SECRET_KEY = '+]x-ML7!wTv|2nA]`]CKaN!K8'
   # unicode on
   JSON_AS_ASCII = False
   # debugging off

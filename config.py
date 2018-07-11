@@ -1,2 +1,2 @@
-APPNAME='defaultapplicationname'
+APPNAME='volunteering'
 ENVIRONMENT='development'
