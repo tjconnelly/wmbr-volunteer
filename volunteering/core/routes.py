@@ -1,6 +1,6 @@
-from appname import context
+from volunteering import context
 
-from flask import appname as app
+from flask import volunteering as app
 from flask import g,request,render_template,url_for,jsonify
 
 import datetime

@@ -7,12 +7,12 @@ directory = os.path.dirname(os.path.realpath(__file__))
 sys.path.insert(0,directory)
 ###
 # run that baby
-from appname import initialize,db
-from appname.models import *
+from volunteering import initialize,db
+from volunteering.models import *
 
 app = initialize(os.getenv('FLASK_CONFIG') or 'local')
-#import appname.access
-import appname.context
+#import volunteering.access
+import volunteering.context
 
 ### {{{ shell commands
 import click

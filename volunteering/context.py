@@ -1,4 +1,4 @@
-from appname import db
+from volunteering import db
 
 from flask import current_app as app
 from flask import g

@@ -48,7 +48,7 @@ def initialize(environment=None):
   app.config['TZ'] = 'America/New_York'
 
   # blueprints
-  from appname.core import core as core_blueprint
+  from volunteering.core import core as core_blueprint
   app.register_blueprint(core_blueprint)
 
   # custom class
